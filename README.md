@@ -26,7 +26,7 @@ npm start
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-jshint": "^2.1.0",
-    "gulp-sass": "^4.0.0",
+    "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.0",
     "jshint": "^2.9.5",
     "pump": "^3.0.0"
