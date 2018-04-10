@@ -8,7 +8,7 @@ var pump = require('pump');
 var browserSync = require('browser-sync').create();
 
 ///////// Compile SASS
-gulp.task('less', function () {
+gulp.task('sass', function () {
   return gulp.src('./assets/sass/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
@@ -23,7 +23,7 @@ gulp.task('less', function () {
 
 // create a task that ensures the `less` task is complete before
 // reloading browsers
-gulp.task('less-watch', ['less'], function (done) {
+gulp.task('sass-watch', ['sass'], function (done) {
     browserSync.reload();
     done();
 });
@@ -56,13 +56,13 @@ gulp.task('js-watch', ['js'], function (done) {
 
 // Live Server with Browser Sync
 // Static Server + watching less/js/html files
-gulp.task('serve', ['less-watch'], function() {
+gulp.task('serve', ['sass-watch'], function() {
 
     browserSync.init({
         server: "./"
     });
 
-    gulp.watch("./assets/less/*.less", ['less-watch']);
+    gulp.watch("./assets/sass/*.scss", ['sass-watch']);
     gulp.watch("./assets/js/*.js", ["js-watch"]);
     gulp.watch("./*.html").on('change', browserSync.reload);
 });
