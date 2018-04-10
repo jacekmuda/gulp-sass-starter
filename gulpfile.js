@@ -10,9 +10,7 @@ var browserSync = require('browser-sync').create();
 ///////// Compile SASS
 gulp.task('less', function () {
   return gulp.src('./assets/sass/*.scss')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
+    .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
         browsers: [
             'last 2 versions',
