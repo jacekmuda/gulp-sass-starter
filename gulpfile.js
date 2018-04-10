@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var less = require('gulp-sass');
+var sass = require('gulp-sass');
 var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 const jshint = require('gulp-jshint');
